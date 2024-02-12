@@ -69,7 +69,7 @@ export function HomePage() {
     function handleSubmit(event : React.FormEvent<HTMLFormElement>): void {
         event.preventDefault();
         console.log(accountAddress)
-        window.open(`/account/${accountAddress}`)
+        window.open(`#/account/${accountAddress}`)
     }
 
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {

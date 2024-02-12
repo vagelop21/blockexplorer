@@ -12,10 +12,10 @@ const App = () => {
   return (
     <Switch>
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/block/:blockNumberParam" component={Block} />
-      <Route exact path="/transaction/:txHash" component={Transaction} />
-      <Route exact path="/account/:accountAddress" component={Account} />
-      <Route exact path="/nft/:contractAddress/:tokenId" component={NFT} />
+      <Route path="/block/:blockNumberParam" component={Block} />
+      <Route path="/transaction/:txHash" component={Transaction} />
+      <Route path="/account/:accountAddress" component={Account} />
+      <Route path="/nft/:contractAddress/:tokenId" component={NFT} />
     </Switch>
   )
 }
