@@ -18,12 +18,13 @@ export function HomePage() {
     const transactionsRef = React.useRef<string []>([])
     transactionsRef.current = transactions
 
-    let didBlockInit = false;
+    const didBlockInitRef = React.useRef<boolean>(false);
+
+    const didPendingTransactionsInitRef = React.useRef<boolean>(false);
 
     React.useEffect(()=> {
-
-      if (!didBlockInit) {
-        didBlockInit = true
+      if (!didBlockInitRef.current) {
+        didBlockInitRef.current = true
         console.log("useEffect block init"+maxBlocks)
         alchemy.ws.on("block", (blockNumber) => {
           console.log("Latest block:", blockNumber)
@@ -41,11 +42,9 @@ export function HomePage() {
     },[maxBlocks])
       
     
-    let didPendingTransactionsInit = false;
-
     React.useEffect(()=> {
-      if(!didPendingTransactionsInit){
-        didPendingTransactionsInit = true
+      if(!didPendingTransactionsInitRef.current){
+        didPendingTransactionsInitRef.current = true
         console.log("useEffect pending transactions init"+maxTransactions)        
         alchemy.ws.on(
           {
