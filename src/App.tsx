@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <Switch>
-      <Route path="/" component={HomePage} />
+      <Route exact path="/" component={HomePage} />
       <Route path="/block/:blockNumberParam" component={Block} />
       <Route path="/transaction/:txHash" component={Transaction} />
       <Route path="/account/:accountAddress" component={Account} />
